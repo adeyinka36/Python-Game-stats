@@ -85,10 +85,19 @@ if  __name__== "__main__":
             print("\n")
 
 
-            team_choice = input("please choose a team by entering its number: ")
-            print("\n")
+        team_choice = input("please choose a team by entering its number: ")
+        print("\n")
 
-            team_choice = int(team_choice)-1
+
+        team_choice = convert_to_int(team_choice)
+        
+        while team_choice  == False:
+            team_choice = input("Please make a choice from the opitions: ")
+            team_choice = convert_to_int(team_choice)
+        
+        team_choice = team_choice-1
+
+        
 
         print(f"Team Name: {constants.TEAMS[team_choice]}")
         print(f"Team size: {len(teams[team_choice])}")
