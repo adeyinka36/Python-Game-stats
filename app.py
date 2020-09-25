@@ -2,6 +2,13 @@ import constants
 import sys
 import copy
 if  __name__== "__main__":
+    def convert_to_int(str):
+        try:
+            num= int(str)
+            return num
+        except:
+            return False
+    
     def playGame():
         
         players=[]
@@ -58,12 +65,20 @@ if  __name__== "__main__":
 
         choice = input("Please make a chioce: ")
         print("\n")
+        
+        choice = convert_to_int(choice)
+        
+        while choice  == False:
+            choice = input("Please make a choice from the opitions: ")
+            choice = convert_to_int(choice)
+        
 
-        if int(choice) == 2:
+        
+        if  choice == 2:
             print("Bye")
             sys.exit()
 
-        elif int(choice) == 1:
+        elif choice == 1:
             print("1) Panthers")
             print("2) Bandiths ")
             print("3) Warriors ")
@@ -119,14 +134,14 @@ if  __name__== "__main__":
 
         back = input("Press any other  key to continue... ")
 
-        if back == "q":
+        if back.lower() == "q":
             print("Thanks for playing")
             sys.exit()
 
         else:
             return playGame()       
 
-
+    
     playGame()
 
         
