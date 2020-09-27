@@ -9,6 +9,13 @@ if  __name__== "__main__":
         except:
             return False
     
+    def check_range(num,start,stop):
+        res= range(start, stop)
+        if num in res:
+            return True
+        else:
+            return False
+    
     def playGame():
         
         players=[]
@@ -67,10 +74,15 @@ if  __name__== "__main__":
         print("\n")
         
         choice = convert_to_int(choice)
+        if(choice):
+            in_range = check_range(choice,1,3)
         
-        while choice  == False:
+    
+        while choice  == False or in_range == False:
             choice = input("Please make a choice from the opitions: ")
             choice = convert_to_int(choice)
+            in_range = check_range(choice,1,3)
+
         
 
         
@@ -90,10 +102,13 @@ if  __name__== "__main__":
 
 
         team_choice = convert_to_int(team_choice)
+        if(team_choice):
+            in_range_team = check_range(team_choice,1,4)
         
-        while team_choice  == False:
+        while team_choice  == False or in_range_team == False:
             team_choice = input("Please make a choice from the opitions: ")
             team_choice = convert_to_int(team_choice)
+            in_range_team = check_range(team_choice,1,4)
         
         team_choice = team_choice-1
 
